@@ -1,0 +1,476 @@
+[
+  {
+    "id": "intro",
+    "title": "Architecture monolithique",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "accidental_architecture",
+    "title": "accidental_architecture",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "big_ball_of_mud",
+    "title": "big_ball_of_mud",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "implication_antipattern",
+    "title": "implication_antipattern",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "index",
+    "title": "index",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "sinkhole_antipattern",
+    "title": "sinkhole_antipattern",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "distributed",
+    "title": "distributed",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "monolithic",
+    "title": "monolithic",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "organization",
+    "title": "organization",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "see_several_dimension",
+    "title": "see_several_dimension",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "what_is_not",
+    "title": "what_is_not",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "conclusion",
+    "title": "conclusion",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "grady_booch_definition",
+    "title": "grady_booch_definition",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "ieee_definition",
+    "title": "ieee_definition",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "jakob_jenkov_definition",
+    "title": "jakob_jenkov_definition",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "mark_richards_definition",
+    "title": "mark_richards_definition",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "exemple",
+    "title": "exemple",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "definitions",
+    "title": "definitions",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "architectural_patterns",
+    "title": "architectural_patterns",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "architectural_styles",
+    "title": "architectural_styles",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "combiner",
+    "title": "combiner",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "design_patterns",
+    "title": "design_patterns",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "availability",
+    "title": "availability",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "elasticity",
+    "title": "elasticity",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "feasibility",
+    "title": "feasibility",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "flexibility",
+    "title": "flexibility",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "idempotence",
+    "title": "idempotence",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "interoperability",
+    "title": "interoperability",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "performance",
+    "title": "performance",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "resilience",
+    "title": "resilience",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "scalability",
+    "title": "scalability",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "clean_vs_layered",
+    "title": "clean_vs_layered",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "controller_presenter",
+    "title": "controller_presenter",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "domain_centric",
+    "title": "domain_centric",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "avantages",
+    "title": "avantages",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "hexagonal_example",
+    "title": "hexagonal_example",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "question",
+    "title": "question",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "inconvenients",
+    "title": "inconvenients",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "caracteristiques",
+    "title": "caracteristiques",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "definition",
+    "title": "definition",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "pourquoi",
+    "title": "pourquoi",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "abstraction",
+    "title": "abstraction",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "abstraction_indirection",
+    "title": "abstraction_indirection",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "encapsulation",
+    "title": "encapsulation",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "boundedcontext_vs_microservice",
+    "title": "boundedcontext_vs_microservice",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "tradeoff",
+    "title": "tradeoff",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "data_transfer_object",
+    "title": "data_transfer_object",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "interface",
+    "title": "interface",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "everything_necessary",
+    "title": "everything_necessary",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "independence",
+    "title": "independence",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "reutilisation_utilisation",
+    "title": "reutilisation_utilisation",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "module_vs_services",
+    "title": "module_vs_services",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "service_vs_microservices",
+    "title": "service_vs_microservices",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "Interface_segregation",
+    "title": "Interface_segregation",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "dependency_Inversion_1",
+    "title": "dependency_Inversion_1",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "dependency_Inversion_2",
+    "title": "dependency_Inversion_2",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "liskov_substitution",
+    "title": "liskov_substitution",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "open_close",
+    "title": "open_close",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "single_responsibility",
+    "title": "single_responsibility",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "tdd",
+    "title": "tdd",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "context_maps",
+    "title": "context_maps",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "relationship_bounded_context",
+    "title": "relationship_bounded_context",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "domain",
+    "title": "domain",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "sub_domain_vs_bounded_context",
+    "title": "sub_domain_vs_bounded_context",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "subdomain",
+    "title": "subdomain",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "comment_ddd",
+    "title": "comment_ddd",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "application_service",
+    "title": "application_service",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "aggregate",
+    "title": "aggregate",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "domain_event",
+    "title": "domain_event",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "entity",
+    "title": "entity",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "value_object",
+    "title": "value_object",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "domain_model_trilemma",
+    "title": "domain_model_trilemma",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "domain_service",
+    "title": "domain_service",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "eventual_consisteny",
+    "title": "eventual_consisteny",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "context_mapping",
+    "title": "context_mapping",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "ddd_and_architecture",
+    "title": "ddd_and_architecture",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "model",
+    "title": "model",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "ubiquitous_language",
+    "title": "Une équipe par Bounded Context",
+    "linkTo": [],
+    "referencedBy": []
+  },
+  {
+    "id": "why_ddd",
+    "title": "why_ddd",
+    "linkTo": [],
+    "referencedBy": []
+  }
+]

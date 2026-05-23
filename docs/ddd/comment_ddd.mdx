@@ -1,0 +1,173 @@
+---
+title: "Comment l'implémenter ?"
+sidebar_position: 3
+displayed_sidebar: dddSidebar
+---
+
+Le Domain-Driven Design ne s'implémente pas en commençant par des classes `Aggregate`, `Entity` ou `ValueObject`. Il s'implémente en partant du métier, puis en faisant descendre cette compréhension dans le code.
+
+Autrement dit, le DDD suit généralement deux mouvements complémentaires :
+- un mouvement **stratégique**, qui aide à comprendre le domaine, à identifier ce qui est important et à découper correctement le système ;
+- un mouvement **tactique** ou **technique**, qui aide à traduire cette compréhension dans un modèle de domaine et dans du code.
+
+:::definition
+L'aspect stratégique répond surtout aux questions : **quel problème métier voulons-nous résoudre ?**, **où se situe la complexité ?** et **quelles sont les bonnes frontières du système ?**
+
+L'aspect tactique répond plutôt à la question : **comment faire vivre cette compréhension métier dans le code, sans la diluer dans l'infrastructure ou dans des services procéduraux ?**
+:::
+
+## 1. Commencer par l'aspect stratégique
+
+Avant de parler d'implémentation, il faut d'abord comprendre le domaine métier. C'est le rôle de l'analyse stratégique.
+
+Dans cette phase, on cherche notamment à :
+- identifier le **business domain** dans lequel évolue l'entreprise ;
+- repérer les **subdomains** ;
+- distinguer ce qui relève du **core subdomain**, du **generic subdomain** et du **supporting subdomain** ;
+- découvrir les **bounded contexts** ;
+- clarifier le langage métier utilisé dans chaque contexte.
+
+Cette étape est importante, car elle permet d'éviter une erreur fréquente : modéliser trop tôt des objets techniques sans avoir compris la structure réelle du métier.
+
+Par exemple, si un sous-domaine n'apporte aucun avantage compétitif et ressemble surtout à un CRUD, il n'a pas forcément besoin d'un modèle DDD riche. À l'inverse, si une partie du système porte la différenciation métier de l'entreprise, alors il devient pertinent d'investir dans une modélisation plus rigoureuse.
+
+Vous pouvez approfondir cette partie dans :
+- [Analyser le Domaine Métier](./analyzing_business_domain/)
+- [Subdomain](./analyzing_business_domain/subdomain)
+- [Bounded Context](./analyzing_business_domain/bounded_context/)
+
+## 2. Définir les bounded contexts avant les objets métier
+
+Une fois le domaine mieux compris, l'étape suivante consiste à poser les frontières du modèle.
+
+Le **bounded context** est probablement l'un des concepts les plus structurants du DDD. Il définit l'espace dans lequel un modèle et un vocabulaire ont un sens précis. C'est à l'intérieur de cette frontière que l'on va concevoir un modèle cohérent.
+
+Concrètement, cela signifie qu'on ne cherche pas à créer un seul modèle global pour toute l'entreprise. On accepte au contraire qu'un même terme puisse avoir des significations différentes selon les contextes.
+
+Cette idée a plusieurs conséquences pratiques :
+- un contexte possède son propre langage ;
+- son modèle ne doit pas être pollué par les règles d'un autre contexte ;
+- ses choix techniques peuvent aussi être différents si cela sert mieux le métier ;
+- dans un système distribué, un bounded context constitue souvent une bonne base pour définir les limites d'un service.
+
+## 3. Passer du stratégique au tactique
+
+Quand les frontières sont claires, on peut commencer le travail tactique. C'est là que l'on conçoit la logique métier à l'intérieur d'un bounded context.
+
+L'objectif n'est pas simplement d'organiser le code, mais de faire en sorte que le code **exprime le métier** :
+- les invariants doivent vivre dans le modèle ;
+- les comportements métier doivent être portés par les bons objets (Rich Domain Model)
+- la logique métier ne doit pas être dispersée dans les contrôleurs, les repositories ou des services utilitaires génériques.
+
+Nous aborderons la partie technique dans la section [Implémenter la logique métier](./implement_business_logic/).
+
+## 4. Construire un Domain Model riche
+
+Le coeur de l'implémentation DDD repose sur le **Domain Model**. Un modèle de domaine n'est pas une simple structure de données ; il encapsule à la fois les **données** et les **comportements**.
+
+Cela implique plusieurs principes :
+- une **entité** possède une identité propre et un cycle de vie ;
+- un **value object** représente une valeur sans identité métier propre ;
+- un **aggregate** protège la cohérence métier à l'intérieur d'une frontière transactionnelle ;
+- un **domain service** porte une logique métier transverse qui n'appartient naturellement à aucune entité ou aucun agrégat ;
+- un **application service** orchestre le cas d'usage et coordonne l'infrastructure avec le domaine.
+
+Autrement dit, on essaie de faire en sorte que le modèle raconte réellement le métier, au lieu de devenir un simple reflet du schéma de base de données.
+
+Vous pouvez poursuivre avec :
+- [Domain Model](./implement_business_logic/domain_model/)
+- [Entité](./implement_business_logic/domain_model/entity)
+- [Aggregate](./implement_business_logic/domain_model/aggregate)
+- [Domain Service](./implement_business_logic/domain_service)
+- [Application Service](./implement_business_logic/application_service)
+
+## 5. Répartir correctement les responsabilités
+
+Une bonne implémentation DDD repose en grande partie sur la bonne répartition des responsabilités.
+
+### Dans le domaine
+
+Le domaine doit contenir ce qui exprime directement le métier :
+- les règles ;
+- les invariants ;
+- les décisions ;
+- les comportements significatifs.
+
+Par exemple, vérifier qu'un compte peut être débité, calculer le total d'une commande, ou empêcher la validation d'une commande invalide sont des responsabilités du domaine.
+
+```java
+// La classe Order contient à la fois la structure de données et le comportement
+public class Order {
+    private final String id;
+    private final List<OrderLine> lines = new ArrayList<>();
+    private OrderStatus status = OrderStatus.DRAFT;
+
+    public void validate() {
+        if (totalAmount() <= 10) {
+            throw new IllegalStateException(
+                "Une commande doit être supérieure à 10 euros pour être validée"
+            );
+        }
+
+        this.status = OrderStatus.VALIDATED;
+    }
+}
+```
+
+### Dans l'application
+
+La couche application orchestre le cas d'usage :
+- charger les agrégats nécessaires ;
+- appeler les bonnes méthodes métier ;
+- persister les modifications ;
+- déclencher les aspects techniques externes.
+
+Elle ne devrait pas contenir la logique métier centrale. Son rôle est de coordonner, pas de décider à la place du domaine.
+
+### Dans l'infrastructure
+
+L'infrastructure s'occupe des détails techniques :
+- base de données ;
+- messagerie ;
+- email ;
+- API externes ;
+- frameworks.
+
+En DDD, l'idée importante est que le métier ne doit pas être modelé à partir de ces contraintes. C'est au contraire l'infrastructure qui doit se mettre au service du domaine.
+
+## 6. Une démarche concrète d'implémentation
+
+En pratique, une implémentation DDD peut suivre une progression de ce type :
+
+1. Comprendre le métier avec les experts du domaine.
+2. Identifier les subdomains et repérer le core subdomain.
+3. Définir les bounded contexts et leur langage.
+4. Modéliser à l'intérieur d'un bounded context les concepts métier principaux.
+5. Faire émerger les entités, value objects, aggregates et services de domaine à partir des invariants métier.
+6. Encadrer ces modèles par des application services qui portent les cas d'usage.
+7. Brancher ensuite l'infrastructure autour de ce modèle, sans la laisser dicter sa forme.
+
+Cette démarche permet d'éviter deux extrêmes :
+- un modèle trop pauvre, réduit à des DTO avec getters/setters ;
+- un modèle trop ambitieux, appliqué partout, y compris sur des zones du système qui n'en ont pas besoin.
+
+## 7. Ce qu'il faut retenir
+
+Implémenter le DDD, ce n'est donc pas “ajouter des patterns” à une application existante. C'est avant tout :
+- comprendre le métier ;
+- identifier où se situe la complexité réelle ;
+- définir des frontières de modèles cohérentes ;
+- laisser le domaine exprimer les règles métier dans le code.
+
+L'aspect stratégique permet de savoir **où** investir l'effort de modélisation.  
+L'aspect tactique permet de savoir **comment** traduire cet effort dans le code.
+
+Les deux sont indissociables : sans stratégie, le modèle tactique risque d'être mal placé ; sans tactique, la compréhension métier ne se matérialise jamais réellement dans l'implémentation.
+
+:::ressources
+- [Pourquoi le DDD ?](./why_ddd)
+- [Analyser le Domaine Métier](./analyzing_business_domain/)
+- [Implémenter la logique métier](./implement_business_logic/)
+- [Aspect Stratégique](./old/strategic_aspect/)
+- [Aspect Tactique](./old/tactical_aspect/)
+:::

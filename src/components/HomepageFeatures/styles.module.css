@@ -1,0 +1,141 @@
+.features {
+  padding: 5rem 0 5.5rem;
+  width: 100%;
+  background:
+    radial-gradient(circle at top, rgba(15, 118, 110, 0.08), transparent 28%),
+    linear-gradient(180deg, #f8fafc 0%, #eef6ff 100%);
+}
+
+.sectionIntro {
+  max-width: 760px;
+  margin: 0 auto 2.8rem;
+  text-align: center;
+}
+
+.sectionEyebrow {
+  margin: 0 0 0.85rem;
+  color: #0f766e;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.sectionDescription {
+  margin: 1rem auto 0;
+  max-width: 62ch;
+  color: #475569;
+  font-size: 1.04rem;
+  line-height: 1.75;
+}
+
+.featureColumn {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 1.4rem;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(15, 118, 110, 0.32);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  text-decoration: none;
+}
+
+.featureVisual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  padding: 1.5rem 1.5rem 1rem;
+  background:
+    radial-gradient(circle at top left, rgba(214, 188, 143, 0.2), transparent 38%),
+    linear-gradient(180deg, #fff9f4 0%, #fff9f4 100%);
+}
+
+.featureBadge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: #0f766e;
+  color: #f0fdfa;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.featureSvg {
+  width: min(100%, 180px);
+  height: 180px;
+}
+
+.featureBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.4rem 1.4rem 1.5rem;
+}
+
+.featureTitle {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.featureDescription {
+  margin: 0.9rem 0 0;
+  color: #475569;
+  line-height: 1.7;
+}
+
+.featureCta {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  color: #0f766e;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 996px) {
+  .features {
+    padding: 4rem 0 4.5rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .featureVisual {
+    min-height: 190px;
+  }
+
+  .featureSvg {
+    width: min(100%, 150px);
+    height: 150px;
+  }
+}
